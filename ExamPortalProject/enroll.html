@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enroll - Online Exam Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      color: #25b8b6;
+      text-align: center;
+      padding: 10px 0;
+    }
+    .navbar {
+      display: flex;
+      background-color: hsl(180, 80%, 28%);
+      color: #fff;
+      justify-content: space-between;
+      padding: 10px;
+    }
+    .navbar a {
+      text-decoration: none;
+      color: #fff;
+      margin: 0 15px;
+      padding: 5px;
+      transition: background-color 0.3s;
+    }
+    .navbar a:hover {
+      background-color: hsl(183, 58%, 49%);
+    }
+    .content {
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      border-radius: 10px;
+      margin: 20px;
+    }
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 10px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Online Exam Portal</h1>
+  </header>
+  <div class="navbar">
+    <a href="/dashboard.html">Dashboard</a>
+    <a href="/profile.html">Update Profile</a>
+    <a href="/exams.html">Exams</a>
+    <a href="/results.html">Results</a>
+    <a href="/courses.html">Courses</a>
+    <a href="/leaderboard.html">Leaderboard</a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a href="/login.html">Logout</a>
+  </div>
+  <div class="content">
+    <h1>Enroll in a Course</h1>
+    <form>
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" name="fullName" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="course">Select Course:</label>
+      <select id="course" name="course" required>
+        <option value="Select Course">Select Course</option>
+        <option value="Introduction to Programming with Python">Introduction to Programming with Python</option>
+        <option value="Data Science Essentials">Data Science Essentials</option>
+        <option value="Cybersecurity Basics">Cybersecurity Basics</option>
+        <option value="Grammar for Creative Writing">Grammar for Creative Writing</option>
+      </select>
+
+      
+      <button type="button" onclick="enrollNow()">Enroll Now</button>
+    </form>
+
+    <div id="successMessage" style="display: none; color: rgb(0, 128, 49); margin-top: 10px;">
+      Successfully enrolled! You are now registered for the course.
+    </div>
+  </div>
+
+  <script>
+    function enrollNow() {
+      document.getElementById('successMessage').style.display = 'block';
+    }
+  </script>
+    </form>
+  </div>
+</body>
+</html>

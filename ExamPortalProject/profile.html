@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Online Exam Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      color: hsl(173, 29%, 95%);
+      text-align: center;
+      padding: 10px 0;
+    }
+    .navbar {
+      display: flex;
+      background-color: hsl(180, 80%, 28%);
+      color: #fff;
+      justify-content: space-between;
+      padding: 10px;
+    }
+    .navbar a {
+      text-decoration: none;
+      color: #fff;
+      margin: 0 15px;
+      padding: 5px;
+      transition: background-color 0.3s;
+    }
+    .navbar a:hover {
+      background-color: hsl(183, 58%, 49%);
+    }
+    h1 {
+      color: #fff;
+    }
+    .content {
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      border-radius: 20px;
+      margin: 20px;
+    }
+    .dashboard-card {
+      color: #fff;
+      border-radius: 10px;
+      padding: 1%;
+      margin-bottom: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .update-profile-btn {
+      display: block;
+      background-color: #3498db; /* Blue background color */
+      color: #fff; /* White text color */
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      text-decoration: none;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    .update-profile-btn:hover {
+      background-color: #2980b9; /* Darker blue on hover */
+    }
+    h1, h2 {
+      text-align: center;
+      color: #333;
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    p {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      color: #000;
+    }
+    form {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      color: #fff;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+    button[type="submit"] {
+      display: block;
+      width: 50%;
+      margin: 0 auto; /* Added margin to center the button */
+      padding: 10px;
+      background-color: #34dbca;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 15px;
+      text-decoration: none;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    button[type="submit"] a {
+      text-decoration: none;
+      color: white;
+    }
+
+    button[type="submit"]:hover {
+      background-color: hsl(187, 64%, 44%);
+    }
+  </style>
+</head>
+<body>
+  <header style="background-image: url('/assets/img/header.jpeg'); ">
+    <h1 style="color: #fff;">Online Exam Portal</h1>
+  </header>
+  <div class="navbar">
+    <a href="/dashboard.html">Dashboard</a>
+    <a href="/profile.html">Update Profile</a>
+    <a href="/exams.html">Exams</a>
+    <a href="/results.html">Results</a>
+    <a href="/courses.html">Courses</a>
+    <a href="/leaderboard.html">Leaderboard</a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a></a>
+    <a href="/login.html">Logout</a>
+  </div>
+  <div class="content">
+    <h1>Your Profile</h1>
+    <div class="dashboard-card">
+      <h2>Total Profile Information</h2>
+      <p>Here is your complete profile information:</p>
+      <form id="profileForm" onsubmit="updateProfile(event)">
+        <label for="totalUsername">Username:</label>
+        <input type="text" id="totalUsername" name="totalUsername" disabled>
+        <label for="totalEmail">Email:</label>
+        <input type="email" id="totalEmail" name="totalEmail" disabled>
+        <label for="totalName">Full Name:</label>
+        <input type="text" id="totalName" name="totalName" disabled>
+        <label for="totalDOB">Date of Birth:</label>
+        <input type="date" id="totalDOB" name="totalDOB" disabled>
+        <label for="newPassword">Change Password:</label>
+    <input type="password" id="newPassword" name="newPassword" disabled>
+        <button type="button" onclick="enableForm()">Edit Profile</button>
+        <button type="submit" style="display: none;">Save Changes</button>
+      </form>
+    </div>
+    <script>
+      // Assume you have registration data stored in variables (replace with your actual data)
+      var registrationData = {
+      username: "2100030531",
+      email: "tallurivineetha12@gmail.com",
+      fullName: "Talluri Vineetha",
+      dateOfBirth: "2023-10-02", // Use the actual date
+      newPassword: "" // Add an initial empty password
+    };
+
+    // Populate the profile card with registration data
+    document.getElementById("totalUsername").value = registrationData.username;
+    document.getElementById("totalEmail").value = registrationData.email;
+    document.getElementById("totalName").value = registrationData.fullName;
+    document.getElementById("totalDOB").value = registrationData.dateOfBirth;
+    document.getElementById("newPassword").value = registrationData.newPassword;
+
+    function enableForm() {
+      // Enable form fields for editing
+      document.getElementById("totalUsername").disabled = false;
+      document.getElementById("totalEmail").disabled = false;
+      document.getElementById("totalName").disabled = false;
+      document.getElementById("totalDOB").disabled = false;
+      document.getElementById("newPassword").disabled = false;
+
+      // Show the "Save Changes" button and hide the "Edit Profile" button
+      document.querySelector("#profileForm button[type='submit']").style.display = "block";
+      document.querySelector("#profileForm button[type='button']").style.display = "none";
+    }
+
+    function updateProfile(event) {
+      // This is where you would handle form submission and update the user data on the server
+      // For this example, we'll prevent the default form submission behavior
+      event.preventDefault();
+
+      // Disable form fields after submission
+      document.getElementById("totalUsername").disabled = true;
+      document.getElementById("totalEmail").disabled = true;
+      document.getElementById("totalName").disabled = true;
+      document.getElementById("totalDOB").disabled = true;
+      document.getElementById("newPassword").disabled = true;
+
+      // Hide the "Save Changes" button and show the "Edit Profile" button
+      document.querySelector("#profileForm button[type='submit']").style.display = "none";
+      document.querySelector("#profileForm button[type='button']").style.display = "block";
+
+      // Update the newPassword in the registration data
+      registrationData.newPassword = document.getElementById("newPassword").value;
+
+      // In a real-world scenario, you would send the form data to the server for processing
+      // You might use AJAX or fetch to send data to the server asynchronously
+    }
+  </script>
+
+</body>
+</html>
